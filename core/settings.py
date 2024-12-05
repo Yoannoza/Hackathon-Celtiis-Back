@@ -78,6 +78,9 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
 ]
 
+ALLOWED_HOSTS = [
+    'hackathon-celtiis-api.onrender.com',
+]
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
