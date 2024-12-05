@@ -8,3 +8,4 @@ PyJWT==2.10.1
 sqlparse==0.5.2
 gunicorn
 dj_database_url
+psycopg2-binary
