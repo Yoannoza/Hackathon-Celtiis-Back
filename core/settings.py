@@ -73,6 +73,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://hackathon-celtiis-back-production.up.railway.app',  # Remplacez par le domaine de votre app
+]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
@@ -147,6 +150,12 @@ AUTHENTICATION_BACKENDS = [
     'hackathon.authentication_backends.NameAuthBackend',  # Remplacez "hackathon" par le nom de votre application
     'django.contrib.auth.backends.ModelBackend',  # Backend par défaut de Django
 ]
+
+STATIC_URL = '/static/'
+
+# Chemin où collecter les fichiers statiques
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 
 # Internationalization

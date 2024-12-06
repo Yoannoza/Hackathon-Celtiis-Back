@@ -7,5 +7,6 @@ djangorestframework-simplejwt==5.3.1
 PyJWT==2.10.1
 sqlparse==0.5.2
 gunicorn
+collectstatic
 dj_database_url
 psycopg2-binary
