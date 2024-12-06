@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default='mysql://root:FqphIhogWWnYMTGUDwxREZlCmEnGlZsh@junction.proxy.rlwy.net:48738/railway')
+    'default': dj_database_url.config(default='postgresql://postgres:EYAGSIDAKvXrIgtZAQDaRmCCyqJkbekC@junction.proxy.rlwy.net:40086/railway')
 }
 # DATABASES = {
 #     'default': {
