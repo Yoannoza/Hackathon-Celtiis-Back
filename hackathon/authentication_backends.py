@@ -1,6 +1,7 @@
 from django.contrib.auth.backends import BaseBackend
 from django.contrib.auth.hashers import check_password
-from .models import Jury  # Importer le modèle Jury
+from .models import Jury
+from django.contrib.auth.models import AbstractUser,  Group, Permission, User# Importer le modèle Jury
 
 class NameAuthBackend(BaseBackend):
     """
