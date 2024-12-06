@@ -19,13 +19,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),          # Route pour l'admin Django
     path('api/', include('hackathon.urls')),  # Inclure les routes de l'application hackathon_app
     # path('api/auth/', include('rest_framework.urls')),  # Ajoute les endpoints de DRF pour login/logout
     
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
