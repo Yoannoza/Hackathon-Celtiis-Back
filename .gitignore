@@ -27,7 +27,8 @@ debug.log
 !**/migrations/__init__.py
 
 # Caches Django
-
+staticfiles/
+media/
 
 # Node.js (si vous utilisez npm pour des bibliothèques front-end)
 node_modules/
