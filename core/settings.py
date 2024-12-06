@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://hackathon_celtiis_user:3c3WiN26j9d4LjbZUqaaz0aRBkGdVL6v@dpg-ct8vd5lds78s73d823d0-a/hackathon_celtiis')
+    'default': dj_database_url.config(default='mysql://root:FqphIhogWWnYMTGUDwxREZlCmEnGlZsh@junction.proxy.rlwy.net:48738/railway')
 }
 # DATABASES = {
 #     'default': {
