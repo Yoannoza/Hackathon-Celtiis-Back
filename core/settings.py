@@ -82,7 +82,8 @@ CORS_ALLOWED_ORIGINS = [
 ALLOWED_HOSTS = [
     'hackathon-celtiis-api.onrender.com',
     '127.0.0.1',
-    '7d30-41-138-89-233.ngrok-free.app'
+    '7d30-41-138-89-233.ngrok-free.app',
+    'hackathon-celtiis-back-production.up.railway.app'
 ]
 ROOT_URLCONF = 'core.urls'
 
