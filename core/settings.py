@@ -76,10 +76,13 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
+    "https://hackathon-celtiis-4mdiyzi83-yoannozas-projects.vercel.app",
 ]
 
 ALLOWED_HOSTS = [
     'hackathon-celtiis-api.onrender.com',
+    '127.0.0.1',
+    '7d30-41-138-89-233.ngrok-free.app'
 ]
 ROOT_URLCONF = 'core.urls'
 
