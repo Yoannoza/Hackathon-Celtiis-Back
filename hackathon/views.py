@@ -156,7 +156,7 @@ class UserInfoView(APIView):
 
         # Renvoyer les informations de l'utilisateur connecté
         return Response({
-            'username': jury.username,  # Vous pouvez ajouter d'autres champs ici si nécessaire
+            'username': jury.name,  # Vous pouvez ajouter d'autres champs ici si nécessaire
         })
 class LeaderboardView(APIView):
     permission_classes = [AllowAny]  # Accessible à tous
