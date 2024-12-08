@@ -17,6 +17,7 @@ from .serializers import VoteSerializer, ProjectSerializer
 from .models import Jury  # Importer le modèle Jury
 
 class JuryRegisterView(APIView):
+    permission_classes = [AllowAny]  # Permet un accès public
     permission_classes = [AllowAny]
     def post(self, request):
         username = request.data.get('username')
@@ -48,6 +49,7 @@ class JuryRegisterView(APIView):
 
 
 class LoginView(APIView):
+    permission_classes = [AllowAny]  # Permet un accès public
     def post(self, request):
         name = request.data.get('username')
         password = request.data.get('password')

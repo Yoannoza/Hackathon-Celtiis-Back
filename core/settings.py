@@ -26,12 +26,11 @@ SECRET_KEY = 'django-insecure-0ydcn461(=t)7c&w1qqrsn=p0kfkoaeixs_d*25%2p5x_%*u_e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,6 +63,8 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,6 +74,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
 CSRF_TRUSTED_ORIGINS = [
     'https://hackathon-celtiis-back-production.up.railway.app',  # Remplacez par le domaine de votre app
 ]
@@ -80,14 +86,10 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     "https://hackathon-celtiis-4mdiyzi83-yoannozas-projects.vercel.app",
-]
+    'https://hackathon-celtiis.vercel.app'
+] 
 
-ALLOWED_HOSTS = [
-    'hackathon-celtiis-api.onrender.com',
-    '127.0.0.1',
-    '7d30-41-138-89-233.ngrok-free.app',
-    'hackathon-celtiis-back-production.up.railway.app'
-]
+ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
@@ -114,7 +116,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://postgres:kkqZXKQnNCawOkBeledelzkvCuRCwmJe@junction.proxy.rlwy.net:25424/railway')
+    'default': dj_database_url.config(default='postgresql://postgres:OLfvjAwYZlOexrjUtrgddvhEmPDvbivO@autorack.proxy.rlwy.net:26136/railway')
 }
 # DATABASES = {
 #     'default': {
@@ -151,13 +153,6 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Backend par défaut de Django
 ]
 
-STATIC_URL = '/static/'
-
-# Chemin où collecter les fichiers statiques
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -174,6 +169,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Chemin où collecter les fichiers statiques
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
