@@ -137,6 +137,27 @@ class VoteViewSet(ModelViewSet):
                 raise ValidationError({"detail": {field: f"Le score maximum est {max_score}."}})
         
 
+class UserInfoView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]  # Accessible uniquement aux utilisateurs authentifiés
+
+    def get(self, request):
+        user = request.user  # L'utilisateur connecté est disponible ici grâce à JWTAuthentication
+
+        # Vérifier si l'utilisateur est authentifié
+        if not user.is_authenticated:
+            return Response({'error': 'User is not authenticated'}, status=401)
+        
+        try:
+            jury = Jury.objects.get(pk=user.pk)
+        except Jury.DoesNotExist:
+            raise AuthenticationFailed({"detail": "Seuls les jurys sont autorisés à voter."})
+        
+
+        # Renvoyer les informations de l'utilisateur connecté
+        return Response({
+            'username': jury.username,  # Vous pouvez ajouter d'autres champs ici si nécessaire
+        })
 class LeaderboardView(APIView):
     permission_classes = [AllowAny]  # Accessible à tous
 
